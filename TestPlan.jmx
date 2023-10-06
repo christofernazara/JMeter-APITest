@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.2">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="TestPlan" enabled="true">
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.tearDown_on_shutdown">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
@@ -10,7 +10,7 @@
       </elementProp>
     </TestPlan>
     <hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group GET" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <stringProp name="LoopController.loops">1</stringProp>
@@ -25,7 +25,7 @@
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
       <hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Delete Api" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Api" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments">
@@ -52,90 +52,23 @@
           <intProp name="HTTPSampler.ipSourceType">0</intProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
-          <objProp>
-            <name>saveConfig</name>
-            <value class="SampleSaveConfiguration">
-              <time>true</time>
-              <latency>true</latency>
-              <timestamp>true</timestamp>
-              <success>true</success>
-              <label>true</label>
-              <code>true</code>
-              <message>true</message>
-              <threadName>true</threadName>
-              <dataType>true</dataType>
-              <encoding>false</encoding>
-              <assertions>true</assertions>
-              <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
-              <fieldNames>true</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
-              <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-              <assertionsResultsToSave>0</assertionsResultsToSave>
-              <bytes>true</bytes>
-              <sentBytes>true</sentBytes>
-              <url>true</url>
-              <threadCounts>true</threadCounts>
-              <idleTime>true</idleTime>
-              <connectTime>true</connectTime>
-            </value>
-          </objProp>
-          <stringProp name="filename"></stringProp>
-        </ResultCollector>
-        <hashTree/>
-        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
-          <objProp>
-            <name>saveConfig</name>
-            <value class="SampleSaveConfiguration">
-              <time>true</time>
-              <latency>true</latency>
-              <timestamp>true</timestamp>
-              <success>true</success>
-              <label>true</label>
-              <code>true</code>
-              <message>true</message>
-              <threadName>true</threadName>
-              <dataType>true</dataType>
-              <encoding>false</encoding>
-              <assertions>true</assertions>
-              <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
-              <fieldNames>true</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
-              <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-              <assertionsResultsToSave>0</assertionsResultsToSave>
-              <bytes>true</bytes>
-              <sentBytes>true</sentBytes>
-              <url>true</url>
-              <threadCounts>true</threadCounts>
-              <idleTime>true</idleTime>
-              <connectTime>true</connectTime>
-            </value>
-          </objProp>
-          <stringProp name="filename"></stringProp>
-        </ResultCollector>
-        <hashTree/>
-        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-          <collectionProp name="HeaderManager.headers">
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Bearer 38a3a73f33012cfbe04461dafa501cab0d276a33526a19e9bf3db608d95fafe6</stringProp>
-            </elementProp>
-          </collectionProp>
-        </HeaderManager>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Post Api" enabled="false">
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group POST PUT DELETE" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <stringProp name="LoopController.loops">1</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.delayedStart">false</boolProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Post Api" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments">
@@ -145,14 +78,14 @@
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="HTTPArgument.content_type">text/plain</stringProp>
                 <stringProp name="Argument.name">name</stringProp>
-                <stringProp name="Argument.value">sumarno</stringProp>
+                <stringProp name="Argument.value">sumarno2</stringProp>
               </elementProp>
               <elementProp name="email" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">email</stringProp>
-                <stringProp name="Argument.value">sumarno@gmail.com</stringProp>
+                <stringProp name="Argument.value">sumarno2@gmail.com</stringProp>
               </elementProp>
               <elementProp name="gender" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
@@ -186,7 +119,7 @@
           <intProp name="HTTPSampler.ipSourceType">0</intProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Put Api" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Put Api" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments">
@@ -196,14 +129,14 @@
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="HTTPArgument.content_type">text/plain</stringProp>
                 <stringProp name="Argument.name">name</stringProp>
-                <stringProp name="Argument.value">sumarni</stringProp>
+                <stringProp name="Argument.value">sumarni3</stringProp>
               </elementProp>
               <elementProp name="email" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">email</stringProp>
-                <stringProp name="Argument.value">sumarni@gmail.com</stringProp>
+                <stringProp name="Argument.value">sumarni3@gmail.com</stringProp>
               </elementProp>
               <elementProp name="gender" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
@@ -223,7 +156,7 @@
           </elementProp>
           <stringProp name="HTTPSampler.domain">gorest.co.in</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/public/v2/users/5292848</stringProp>
+          <stringProp name="HTTPSampler.path">/public/v2/users/5297846</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -237,14 +170,14 @@
           <intProp name="HTTPSampler.ipSourceType">0</intProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Delete Api" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Delete Api" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
           <stringProp name="HTTPSampler.domain">gorest.co.in</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/public/v2/users/5292848</stringProp>
+          <stringProp name="HTTPSampler.path">/public/v2/users/5297838</stringProp>
           <stringProp name="HTTPSampler.method">DELETE</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -259,6 +192,127 @@
         </HTTPSamplerProxy>
         <hashTree/>
       </hashTree>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Authorization</stringProp>
+            <stringProp name="Header.value">Bearer 38a3a73f33012cfbe04461dafa501cab0d276a33526a19e9bf3db608d95fafe6</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+        <collectionProp name="Asserion.test_strings">
+          <stringProp name="49586">200</stringProp>
+          <stringProp name="49587">201</stringProp>
+          <stringProp name="49590">204</stringProp>
+        </collectionProp>
+        <stringProp name="Assertion.custom_message"></stringProp>
+        <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+        <boolProp name="Assertion.assume_success">false</boolProp>
+        <intProp name="Assertion.test_type">34</intProp>
+      </ResponseAssertion>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">D:\BelajarQA\JmeterReport\TestPlan.jmx</stringProp>
+      </ResultCollector>
+      <hashTree/>
     </hashTree>
   </hashTree>
 </jmeterTestPlan>
+1696573381539,353,Get Api,200,OK,Thread Group GET 1-1,text,true,,2425,277,4,5,https://gorest.co.in/public/v2/users,353,0,140
+1696573381543,417,Post Api,201,Created,Thread Group POST PUT DELETE 2-1,text,true,,1210,368,1,5,https://gorest.co.in/public/v2/users,417,0,131
+1696573381746,325,Get Api,200,OK,Thread Group GET 1-3,text,true,,2390,277,5,6,https://gorest.co.in/public/v2/users,324,0,116
+1696573381960,205,Put Api,200,OK,Thread Group POST PUT DELETE 2-1,text,true,,1151,379,1,6,https://gorest.co.in/public/v2/users/5297846,205,0,0
+1696573381654,533,Get Api,200,OK,Thread Group GET 1-2,text,true,,2396,277,5,6,https://gorest.co.in/public/v2/users,533,0,132
+1696573382165,201,Delete Api,204,No Content,Thread Group POST PUT DELETE 2-1,,true,,899,311,1,7,https://gorest.co.in/public/v2/users/5297838,0,0,0
+1696573381939,535,Get Api,200,OK,Thread Group GET 1-5,text,true,,2390,277,7,7,https://gorest.co.in/public/v2/users,535,0,118
+1696573382040,483,Get Api,200,OK,Thread Group GET 1-6,text,true,,2392,277,6,6,https://gorest.co.in/public/v2/users,483,0,115
+1696573382141,525,Get Api,200,OK,Thread Group GET 1-7,text,true,,2388,277,5,5,https://gorest.co.in/public/v2/users,525,0,124
+1696573381841,918,Get Api,200,OK,Thread Group GET 1-4,text,true,,2396,277,4,4,https://gorest.co.in/public/v2/users,862,0,122
+1696573382240,548,Get Api,200,OK,Thread Group GET 1-8,text,true,,2394,277,3,3,https://gorest.co.in/public/v2/users,548,0,187
+1696573382440,361,Get Api,200,OK,Thread Group GET 1-10,text,true,,2398,277,2,2,https://gorest.co.in/public/v2/users,361,0,116
+1696573382340,517,Get Api,200,OK,Thread Group GET 1-9,text,true,,2394,277,1,1,https://gorest.co.in/public/v2/users,517,0,125
+1696573391695,824,Get Api,200,OK,Thread Group GET 1-1,text,true,,2394,277,10,11,https://gorest.co.in/public/v2/users,819,0,581
+1696573391695,841,Post Api,422,Unprocessable Entity,Thread Group POST PUT DELETE 2-1,text,false,Test failed: code expected something using /200/	Test failed: code expected something using /201/	Test failed: code expected something using /204/	,1047,368,1,10,https://gorest.co.in/public/v2/users,841,0,581
+1696573392097,558,Get Api,200,OK,Thread Group GET 1-6,text,true,,2392,277,9,10,https://gorest.co.in/public/v2/users,558,0,179
+1696573391999,684,Get Api,200,OK,Thread Group GET 1-5,text,true,,2400,277,8,9,https://gorest.co.in/public/v2/users,684,0,277
+1696573391799,968,Get Api,200,OK,Thread Group GET 1-3,text,true,,2394,277,7,8,https://gorest.co.in/public/v2/users,968,0,478
+1696573392537,252,Put Api,200,OK,Thread Group POST PUT DELETE 2-1,text,true,,1147,379,1,7,https://gorest.co.in/public/v2/users/5297846,252,0,0
+1696573391699,1110,Get Api,200,OK,Thread Group GET 1-2,text,true,,2390,277,6,7,https://gorest.co.in/public/v2/users,1109,0,577
+1696573391900,974,Get Api,200,OK,Thread Group GET 1-4,text,true,,2390,277,5,6,https://gorest.co.in/public/v2/users,973,0,377
+1696573392197,701,Get Api,200,OK,Thread Group GET 1-7,text,true,,2392,277,4,5,https://gorest.co.in/public/v2/users,701,0,132
+1696573392397,504,Get Api,200,OK,Thread Group GET 1-9,text,true,,2394,277,3,4,https://gorest.co.in/public/v2/users,504,0,128
+1696573392789,189,Delete Api,404,Not Found,Thread Group POST PUT DELETE 2-1,text,false,Test failed: code expected something using /200/	Test failed: code expected something using /201/	Test failed: code expected something using /204/	,1018,311,1,3,https://gorest.co.in/public/v2/users/5297838,189,0,0
+1696573392297,681,Get Api,200,OK,Thread Group GET 1-8,text,true,,2392,277,2,3,https://gorest.co.in/public/v2/users,681,0,121
+1696573392496,598,Get Api,200,OK,Thread Group GET 1-10,text,true,,2396,277,1,1,https://gorest.co.in/public/v2/users,598,0,125
